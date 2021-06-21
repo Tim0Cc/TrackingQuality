@@ -6,13 +6,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const expressLayout = require('express-ejs-layouts')
-const methodOverride = require('method-override')
+// const methodOverride = require('method-override')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
 
 require('./config/passport')(passport)
 
+const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -24,7 +25,7 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 
 app.use(expressLayout)
-app.use(methodOverride)
+// app.use(methodOverride)
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
@@ -47,6 +48,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use('/', indexRouter)
 app.use('/login', usersRouter)
 
 app.listen(process.env.PORT || 3000)
