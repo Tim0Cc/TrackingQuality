@@ -18,8 +18,19 @@
   <ul>
     <% publications.forEach(publication => { %>
       <li>
-        <%= publication.name %> 
+        <%= publication.name %>
+        <br>
+        publicationArtists:
+        <ol>
+          <% publication.artists.forEach( publicationArtist => { %>
+            <li>
+              <%= publicationArtist.name %> 
+            </li>
+            <% }) %> 
+        </ol>
       </li>
+      –––––––––––––––––
+      <br>
     <% }) %> 
   </ul>
 </div>

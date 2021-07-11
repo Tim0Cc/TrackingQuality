@@ -9,7 +9,7 @@ const Publication = require('../models/publication')
 router.get('/', async (req, res) =>{
   try {
     const artists = await Artist.find({})
-    const publications = await Publication.find({})
+    const publications = await Publication.find({}).populate('artists').exec()
     res.render('index', { artists, publications })
   } catch (error) {
     console.error(error)

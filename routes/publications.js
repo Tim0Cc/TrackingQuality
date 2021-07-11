@@ -3,8 +3,12 @@ const router = express.Router()
 const Publication = require('../models/publication')
 
 router.post('/', async (req, res) => {
+  const publicationArtists = req.body.publicationArtists
   const publication = new Publication({
-    name: req.body.publicationName
+    name: req.body.publicationName.trim()
+  })
+  publicationArtists.forEach(publicationArtist => {
+    publication.artists.push(publicationArtist)
   })
   console.log(publication)
   try {

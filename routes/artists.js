@@ -4,7 +4,7 @@ const Artist = require('../models/artist')
 
 router.post('/', async (req, res) => {
   const artist = new Artist({
-    name: req.body.artistName
+    name: req.body.artistName.trim()
   })
   console.log(artist)
   try {
