@@ -1,6 +1,12 @@
 const mongoose =  require('mongoose')
+// delete mongoose.models['Link'];
+// delete mongoose.connection.collections['links'];
+// delete mongoose.modelSchemas['Link'];
+// delete mongoose.models['link'];
+// delete mongoose.connection.collections['Links'];
+// delete mongoose.modelSchemas['link'];
 
-const PublicationSchema = new mongoose.Schema({
+const LinkSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -25,4 +31,4 @@ const PublicationSchema = new mongoose.Schema({
   }]
 })
 
-module.exports = mongoose.model('Publication', PublicationSchema)
+module.exports = mongoose.model('Link', LinkSchema)

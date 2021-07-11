@@ -1,12 +1,24 @@
 <h1>From Index.ejs</h1>
 <a href="/login">Login</a>
+<h2>––––––––––––––––––––––––––––––––––––––––––</h2>
 
 <div class="artists">
-  <h4>Artists:</h4>
+  <h4>artists:</h4>
   <ul>
     <% artists.forEach(artist => { %>
       <li>
         <%= artist.name %> 
+      </li>
+    <% }) %> 
+  </ul>
+</div>
+
+<div class="publications">
+  <h4>publications:</h4>
+  <ul>
+    <% publications.forEach(publication => { %>
+      <li>
+        <%= publication.name %> 
       </li>
     <% }) %> 
   </ul>

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Artist = require('../models/artist')
+const Publication = require('../models/publication')
 // const passport = require('passport')
 
 // const { ensureAuthenticated } = require('../config/auth')
@@ -8,7 +9,8 @@ const Artist = require('../models/artist')
 router.get('/', async (req, res) =>{
   try {
     const artists = await Artist.find({})
-    res.render('index', { artists })
+    const publications = await Publication.find({})
+    res.render('index', { artists, publications })
   } catch (error) {
     console.error(error)
     res.redirect('/error')

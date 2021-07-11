@@ -1,6 +1,12 @@
 const mongoose =  require('mongoose')
+// delete mongoose.models['Artist'];
+// delete mongoose.connection.collections['artists'];
+// delete mongoose.modelSchemas['Artist'];
+// delete mongoose.models['artist'];
+// delete mongoose.connection.collections['Artists'];
+// delete mongoose.modelSchemas['Artist'];
 
-const artistSchema = new mongoose.Schema({
+const ArtistSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -17,4 +23,4 @@ const artistSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Artist', artistSchema)
+module.exports = mongoose.model('Artist', ArtistSchema)

@@ -1,4 +1,11 @@
 const mongoose =  require('mongoose')
+// delete mongoose.connection.models['Publication']
+// delete mongoose.models['Publication'];
+// delete mongoose.connection.collections['publications'];
+// delete mongoose.modelSchemas['Publication'];
+// delete mongoose.models['publication'];
+// delete mongoose.connection.collections['Publications'];
+// delete mongoose.modelSchemas['publication'];
 
 const PublicationSchema = new mongoose.Schema({
   name: {
