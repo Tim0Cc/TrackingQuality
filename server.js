@@ -9,12 +9,16 @@ const expressLayout = require('express-ejs-layouts')
 // const methodOverride = require('method-override')
 const flash = require('connect-flash')
 const session = require('express-session')
-const passport = require('passport')
+// const passport = require('passport')
 
-require('./config/passport')(passport)
+// require('./config/passport')(passport)
 
 const indexRouter = require('./routes/index')
+const changesRouter = require('./routes/changes')
 const usersRouter = require('./routes/users')
+const artistsRouter = require('./routes/artists')
+const publicationsRouter = require('./routes/publications')
+const linksRouter = require('./routes/links')
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connection.on('error', error => console.error(error))
@@ -29,26 +33,30 @@ app.use(expressLayout)
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true
-}))
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(flash())
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated()
-  next()
-})
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg')
-  res.locals.error_msg = req.flash('error_msg')
-  res.locals.error = req.flash('error')
-  next()
-})
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: true,
+//   saveUninitialized: true
+// }))
+// app.use(passport.initialize())
+// app.use(passport.session())
+// app.use(flash())
+// app.use((req, res, next) => {
+//   res.locals.isAuthenticated = req.isAuthenticated()
+//   next()
+// })
+// app.use((req, res, next) => {
+//   res.locals.success_msg = req.flash('success_msg')
+//   res.locals.error_msg = req.flash('error_msg')
+//   res.locals.error = req.flash('error')
+//   next()
+// })
 
 app.use('/', indexRouter)
+app.use('/changes', changesRouter)
 app.use('/login', usersRouter)
+app.use('/artists', artistsRouter)
+app.use('/publications', publicationsRouter)
+app.use('/links', linksRouter)
 
 app.listen(process.env.PORT || 3000)

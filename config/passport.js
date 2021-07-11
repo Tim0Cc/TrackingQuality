@@ -4,8 +4,9 @@ module.exports = function(passport) {
   passport.use(
     new LocalStrategy( (username, password, done) => {
       const user = {
-        userName: process.env.USERNAME,
-        userPassword: process.env.LOGIN_PASSWORD
+        id: process.env.USER_ID,
+        username: process.env.USERNAME,
+        password: process.env.LOGIN_PASSWORD
       }
       if (username != user.userName) {
         return done(null, false, {message: 'wrong username'})
@@ -19,17 +20,24 @@ module.exports = function(passport) {
     })
   )
   passport.serializeUser(function(user, done) {
-    done(null, user.userName)
+    done(null, user.id)
   })
-  passport.deserializeUser(function(userName, done) {
+  passport.deserializeUser(function(id, done) {
     let users = []
-    const user = {
-      name: process.env.USERNAME,
-      userPassword: process.env.LOGIN_PASSWORD
+    const nuser = {
+      id: process.env.USER_ID,
+      username: process.env.USERNAME,
+      password: process.env.LOGIN_PASSWORD
     }
-    users.push(user)
-    users.findByName(userName, function(err, user) {
-      done(err, user)
-    })
+    users.push(nuser)
+    const findByID = function(id, err, user) {
+      const buser = users.find(({id}) => id == req.body.userid)
+      console.log(user)
+      console.log(users)
+      console.log(buser)
+      console.log(err)
+      done(err, buser) 
+    }
+    users.findByID(id)
   })
 }
