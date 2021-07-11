@@ -6,6 +6,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const expressLayout = require('express-ejs-layouts')
+const path = require('path')
+// const bootstrap = require('bootstrap')
 // const methodOverride = require('method-override')
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -32,6 +34,10 @@ app.use(expressLayout)
 // app.use(methodOverride)
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
+
 
 // app.use(session({
 //   secret: process.env.SESSION_SECRET,

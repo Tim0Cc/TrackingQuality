@@ -1,33 +1,43 @@
 <h2>Create new Stuff</h2>
 
-<form action="/artists" method="POST">
-  <label for="artist">artist</label>
-  <input type="text" name="artistName" id="artist-name">
-  <button type="submit">Create</button>
-</form>
+<div class="container">
+  <form action="/artists" method="POST">
+    <div class="form-group">
+      <label for="artist" class="form-label">artist</label>
+      <input type="text" name="artistName" id="artist-name" class="form-control">
+      <button type="submit">Create</button>
+    </div>
+  </form>
+</div>
 
-<form action="/publications" method="POST">
-  <div>
-    <label for="publication">publication</label>
-    <input type="text" name="publicationName" id="publication-name">
-  </div>
-  <div>
-    <label>publication artists</label>
-    <select name="publicationArtists" multiple>
-      <% artists.forEach(artist => { %>
-        <% if (artist.id === publication.artist) { %>
-          <option selected label="<%= artist.name %>" value="<%= artist.id %>">
-        <% } else { %> 
-          <option label="<%= artist.name %>" value="<%= artist.id %>">
-        <% } %> 
-      <% }) %> 
-    </select>
-  </div>
-  <button type="submit">Create</button>
-</form>
+<div class="container">
+  <form action="/publications" method="POST">
+    <div class="form-group">
+      <label for="publication" class="form-label">publication</label>
+      <input type="text" name="publicationName" id="publication-name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="form-label">publication artists</label>
+      <select name="publicationArtists" multiple>
+        <% artists.forEach(artist => { %>
+          <% if (artist.id === publication.artist) { %>
+            <option selected label="<%= artist.name %>" value="<%= artist.id %>">
+          <% } else { %> 
+            <option label="<%= artist.name %>" value="<%= artist.id %>">
+          <% } %> 
+        <% }) %> 
+      </select>
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>
 
-<form action="/links" method="POST">
-  <label for="link">link</label>
-  <input type="text" name="linkName" id="link-name">
-  <button type="submit">Create</button>
-</form>
+<div class="container">
+  <form action="/links" method="POST">
+    <div class="form-group">
+      <label for="link" class="form-label">link</label>
+      <input type="text" name="linkName" id="link-name" class="form-control">
+      <button type="submit">Create</button>
+    </div>
+  </form>
+</div>
