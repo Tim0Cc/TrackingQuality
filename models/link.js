@@ -1,10 +1,4 @@
 const mongoose =  require('mongoose')
-// delete mongoose.models['Link'];
-// delete mongoose.connection.collections['links'];
-// delete mongoose.modelSchemas['Link'];
-// delete mongoose.models['link'];
-// delete mongoose.connection.collections['Links'];
-// delete mongoose.modelSchemas['link'];
 
 const LinkSchema = new mongoose.Schema({
   name: {
