@@ -1,2 +1,13 @@
 <h1>From Index.ejs</h1>
 <a href="/login">Login</a>
+
+<div class="artists">
+  <h4>Artists:</h4>
+  <ul>
+    <% artists.forEach(artist => { %>
+      <li>
+        <%= artist.name %> 
+      </li>
+    <% }) %> 
+  </ul>
+</div>
