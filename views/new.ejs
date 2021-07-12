@@ -1,4 +1,4 @@
-<div class="bg-dark">
+<div class="bg-dark pb-5">
 
   <div class="container py-4 text-info">
     <h2>Administration Page for <em>CRUD</em>-operations</h2>
@@ -9,7 +9,7 @@
       <div class="form-group">
         <label for="link" class="form-label fs-4 fw-bolder">link</label>
         <input type="text" name="linkName" id="link-name" class="form-control mb-2">
-        <%- include('./partials/button-row') %> 
+        <%- include('./partials/_button_submit') %> 
       </div>
     </form>
   </div>
@@ -19,8 +19,8 @@
       <div class="form-group">
         <label for="artist" class="form-label fs-4 fw-bolder">artist</label>
         <input type="text" name="artistName" id="artist-name" class="form-control mb-2">
-        <%- include('./partials/button-row') %> 
       </div>
+      <%- include('./partials/_button_submit') %> 
     </form>
   </div>
 
@@ -34,15 +34,11 @@
         <label class="form-label fs-5 fw-normal">publication artists</label>
         <select name="publicationArtists" class="form-select" multiple>
           <% artists.forEach(artist => { %>
-            <% if (artist.id === publication.artist) { %>
-              <option selected label="<%= artist.name %>" value="<%= artist.id %>">
-            <% } else { %> 
-              <option label="<%= artist.name %>" value="<%= artist.id %>">
-            <% } %> 
+            <option label="<%= artist.name %>" value="<%= artist.id %>">
           <% }) %> 
         </select>
       </div>
-      <%- include('./partials/button-row') %> 
+      <%- include('./partials/_button_submit') %> 
     </form>
   </div>
 
