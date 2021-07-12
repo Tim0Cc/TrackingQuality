@@ -9,15 +9,7 @@
       <div class="form-group">
         <label for="link" class="form-label fs-4 fw-bolder">link</label>
         <input type="text" name="linkName" id="link-name" class="form-control mb-2">
-        <div class="d-flex justify-content-between">
-          <div class="">
-            <button type="submit" class="btn btn-success mt-2">Create</button>
-          </div>
-          <div class="">
-            <button type="submit" class="btn btn-warning mt-2">Update</button>
-            <button type="submit" class="btn btn-danger mt-2">Delete</button>
-          </div>
-        </div>
+        <%- include('./partials/button-row') %> 
       </div>
     </form>
   </div>
@@ -27,15 +19,7 @@
       <div class="form-group">
         <label for="artist" class="form-label fs-4 fw-bolder">artist</label>
         <input type="text" name="artistName" id="artist-name" class="form-control mb-2">
-        <div class="d-flex justify-content-between">
-          <div class="">
-            <button type="submit" class="btn btn-success mt-2">Create</button>
-          </div>
-          <div class="">
-            <button type="submit" class="btn btn-warning mt-2">Update</button>
-            <button type="submit" class="btn btn-danger mt-2">Delete</button>
-          </div>
-        </div>
+        <%- include('./partials/button-row') %> 
       </div>
     </form>
   </div>
@@ -58,15 +42,7 @@
           <% }) %> 
         </select>
       </div>
-      <div class="d-flex justify-content-between">
-        <div class="">
-          <button type="submit" class="btn btn-success mt-2">Create</button>
-        </div>
-        <div class="">
-          <button type="submit" class="btn btn-warning mt-2">Update</button>
-          <button type="submit" class="btn btn-danger mt-2">Delete</button>
-        </div>
-      </div>
+      <%- include('./partials/button-row') %> 
     </form>
   </div>
 
