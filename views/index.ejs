@@ -1,88 +1,88 @@
-<h1>From Index.ejs</h1>
-<a href="/login">Login</a>
-<h2>––––––––––––––––––––––––––––––––––––––––––</h2>
+<div class="bg-dark pb-5">
 
-<div class="bg-dark py-5">
-
-
-<div class="container artists mb-3 py-3 border rounded bg-light">
-  <h4>artists:</h4>
-  <ul class="list-group">
-    <% artists.forEach(artist => { %>
-      <li class="list-group-item"> 
-        <div class="row">
-          <div class="col-11">
-            <form action="/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
-              <div class="row">
-                <div class="col">
-                  <label for="<%= artist.name %>_form" class="form_label fs-5"><%= artist.name %></label>
-                </div>
-                <div class="col">
-                  <input type="text" name="artistName" class="form-control" id="<%= artist.name %>_form" placeholder="<%= artist.name %>">
-                </div>
-                <div class="col">
-                  <button type="submit" class="btn btn-warning">Update</button>
-                </div>
-              </form>
+  <div class="container py-4 text-info">
+    <h2>From Index.ejs</h2>
+    <a href="/login">Login</a>
+    <h2>––––––––––––––––––––––––––––––––––––––––––</h2>
+  </div>
+  <div class="container artists mb-3 py-3 border rounded bg-light">
+    <h4>artists:</h4>
+    <ul class="list-group">
+      <% artists.forEach(artist => { %>
+        <li class="list-group-item"> 
+          <div class="row">
+            <div class="col-11">
+              <form action="/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
+                <div class="row">
+                  <div class="col">
+                    <label for="<%= artist.name %>_form" class="form_label fs-5"><%= artist.name %></label>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="artistName" class="form-control" id="<%= artist.name %>_form" placeholder="<%= artist.name %>">
+                  </div>
+                  <div class="col">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-1">
+              <%- include('./partials/deleteForm', { url: `/artists/${artist.id}`}) %> 
             </div>
           </div>
-          <div class="col-1">
-            <%- include('./partials/deleteForm', { url: `/artists/${artist.id}`}) %> 
-          </div>
-        </div>
-      </li>
-    <% }) %> 
-  </ul>
-</div>
+        </li>
+      <% }) %> 
+    </ul>
+  </div>
 
 
-<div class="container publications mb-3 py-3 border rounded bg-light">
-  <h4>publications:</h4>
-  <ul class="list-group">
-    <% publications.forEach(publication => { %>
-      <li class="list-group-item"> 
-        <div class="row">
-          <div class="col-11">
-            <form action="/artists/<%= publication.id %>?_method=PUT" method="POST" class="">
-              <div class="row">
-                <div class="col">
-                  <label for="<%= publication.name %>_form" class="form_label fs-5"><%= publication.name %></label>
-                </div>
-                <div class="col">
-                  <input type="text" name="publicationName" class="form-control" id="<%= publication.name %>_form" placeholder="<%= publication.name %>">
-                </div>
-                <div class="col">
-                  <label class="form-label fs-6 fw-normal">publication artists:</label>
-                </div>
-                <div class="col">
-                  <% publication.artists.forEach( publicationArtist => { %>
-                    <li>
-                      <%= publicationArtist.name %> 
-                    </li>
-                  <% }) %> 
-                  <select name="publicationArtists" class="form-select" multiple>
-                    <% artists.forEach(artist => { %>
-                      <% if (artist.id === publication.artist) { %>
-                        <option selected label="<%= artist.name %>" value="<%= artist.id %>">
-                      <% } else { %> 
-                        <option label="<%= artist.name %>" value="<%= artist.id %>">
-                      <% } %> 
+  <div class="container publications mb-3 py-3 border rounded bg-light">
+    <h4>publications:</h4>
+    <ul class="list-group">
+      <% publications.forEach(publication => { %>
+        <li class="list-group-item"> 
+          <div class="row">
+            <div class="col-11">
+              <form action="/artists/<%= publication.id %>?_method=PUT" method="POST" class="">
+                <div class="row">
+                  <div class="col">
+                    <label for="<%= publication.name %>_form" class="form_label fs-5"><%= publication.name %></label>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="publicationName" class="form-control" id="<%= publication.name %>_form" placeholder="<%= publication.name %>">
+                  </div>
+                  <div class="col">
+                    <label class="form-label fs-6 fw-normal">publication artists:</label>
+                  </div>
+                  <div class="col">
+                    <% publication.artists.forEach( publicationArtist => { %>
+                      <li>
+                        <%= publicationArtist.name %> 
+                      </li>
                     <% }) %> 
-                  </select>ga
-                </div>
-                <div class="col">
-                  <button type="submit" class="btn btn-warning">Update</button>
-                </div>
-              </form>
+                    <select name="publicationArtists" class="form-select" multiple>
+                      <% artists.forEach(artist => { %>
+                        <% if (artist.id === publication.artist) { %>
+                          <option selected label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } else { %> 
+                          <option label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } %> 
+                      <% }) %> 
+                    </select>ga
+                  </div>
+                  <div class="col">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-1">
+              <%- include('./partials/deleteForm', { url: `/publications/${publication.id}`}) %> 
             </div>
           </div>
-          <div class="col-1">
-            <%- include('./partials/deleteForm', { url: `/publications/${publication.id}`}) %> 
-          </div>
-        </div>
-      </li>
-    <% }) %> 
-  </ul>
-</div>
+        </li>
+      <% }) %> 
+    </ul>
+  </div>
 
 </div>
