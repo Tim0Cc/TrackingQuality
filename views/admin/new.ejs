@@ -4,6 +4,8 @@
     <h2>Administration Page for <em>CRUD</em>-operations</h2>
   </div>
 
+<!-- LINK -->
+
   <div class="container bg-light bg-gradient mb-3 border rounded">
     <form action="/create/links" method="POST" class="px-4 py-3">
       <div class="form-group">
@@ -13,6 +15,8 @@
       </div>
     </form>
   </div>
+
+  <!-- ARTIST -->
 
   <div class="container bg-light bg-gradient mb-3 border rounded">
     <form action="/create/artist" method="POST" class="px-4 py-3">
@@ -24,6 +28,8 @@
     </form>
   </div>
 
+<!-- PUBLICATION -->
+
   <div class="container bg-light bg-gradient mb-3 border rounded">
     <form action="/create/publication" method="POST" class="px-4 py-3">
       <div class="form-group">
@@ -33,6 +39,26 @@
       <div class="">
         <label class="form-label fs-5 fw-normal">publication artists</label>
         <select name="publicationArtists" class="form-select" multiple>
+          <% artists.forEach(artist => { %>
+            <option label="<%= artist.name %>" value="<%= artist.id %>">
+          <% }) %> 
+        </select>
+      </div>
+      <%- include('../admin/partials/_button_submit') %> 
+    </form>
+  </div>
+
+<!-- INSTITUTION -->
+
+  <div class="container bg-light bg-gradient mb-3 border rounded">
+    <form action="/create/institution" method="POST" class="px-4 py-3">
+      <div class="form-group">
+        <label for="institution" class="form-label fs-4 fw-bolder">institution</label>
+        <input type="text" name="institutionName" id="institution-name" class="form-control mb-2">
+      </div>
+      <div class="">
+        <label class="form-label fs-5 fw-normal">institution artists</label>
+        <select name="institutionArtists" class="form-select" multiple>
           <% artists.forEach(artist => { %>
             <option label="<%= artist.name %>" value="<%= artist.id %>">
           <% }) %> 

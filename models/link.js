@@ -15,6 +15,10 @@ const LinkSchema = new mongoose.Schema({
     required: true,
     default: Date.now
   },
+  type: [{
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
+  }],
   artists: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Artist'
@@ -22,6 +26,10 @@ const LinkSchema = new mongoose.Schema({
   publications: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Publication'
+  }],
+  institutions: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Institution'
   }]
 })
 

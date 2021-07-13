@@ -5,6 +5,9 @@
     <a href="/login">Login</a>
     <h2>––––––––––––––––––––––––––––––––––––––––––</h2>
   </div>
+
+  <!-- ARTISTS -->
+
   <div class="container artists mb-3 py-3 border rounded bg-light">
     <h4>artists:</h4>
     <ul class="list-group">
@@ -35,6 +38,7 @@
     </ul>
   </div>
 
+  <!-- PUBLICATIONS -->
 
   <div class="container publications mb-3 py-3 border rounded bg-light">
     <h4>publications:</h4>
@@ -62,7 +66,7 @@
                     <% }) %> 
                     <select name="publicationArtists" class="form-control form-control-sm" multiple>
                       <% artists.forEach(artist => { %>
-                        <% if (artist.id === publication.artist) { %>
+                        <% if (publication.artists.includes(artist.id)) { %>
                           <option selected label="<%= artist.name %>" value="<%= artist.id %>">
                         <% } else { %> 
                           <option label="<%= artist.name %>" value="<%= artist.id %>">
@@ -84,5 +88,55 @@
       <% }) %> 
     </ul>
   </div>
-
+  
+  <!-- INSTITUTIONS -->
+  
+  <div class="container institutions mb-3 py-3 border rounded bg-light">
+    <h4>institutions:</h4>
+    <ul class="list-group">
+      <% institutions.forEach(institution => { %>
+        <li class="list-group-item"> 
+          <div class="row">
+            <div class="col-11">
+              <form action="update/institutions/<%= institution.id %>?_method=PUT" method="POST" class="">
+                <div class="row">
+                  <div class="col">
+                    <label for="<%= institution.name %>_form" class="form_label fs-5"><%= institution.name %></label>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="institutionName" class="form-control" id="<%= institution.name %>_form" value="<%= institution.name %>">
+                  </div>
+                  <div class="col">
+                    <label class="form-label fs-6 fw-normal">institution artists:</label>
+                  </div>
+                  <div class="col">
+                    <% institution.artists.forEach( institutionArtist => { %>
+                      <li>
+                        <%= institutionArtist.name %> 
+                      </li>
+                    <% }) %> 
+                    <select name="institutionArtists" class="form-control form-control-sm" multiple>
+                      <% artists.forEach(artist => { %>
+                        <% if (institution.artists.includes(artist.id)) { %>
+                          <option selected label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } else { %> 
+                          <option label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } %> 
+                      <% }) %> 
+                    </select>
+                  </div>
+                  <div class="col">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-1">
+              <%- include('./partials/deleteForm', { url: `/delete/institutions/${institution.id}`}) %> 
+            </div>
+          </div>
+        </li>
+      <% }) %> 
+    </ul>
+  </div>
 </div>
