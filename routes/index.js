@@ -10,4 +10,11 @@ router.get('/', async (req, res) =>{
   }
 })
 
+router.get('/impressum', (req, res) =>{
+  res.render('../public/pages/impressum')
+})
+router.get('/datenschutz', (req, res) =>{
+  res.render('../public/pages/datenschutz')
+})
+
 module.exports = router
