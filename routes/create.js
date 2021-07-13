@@ -22,7 +22,6 @@ router.post('/artist', async (req, res) => {
   const artist = new Artist({
     name: req.body.artistName.trim()
   })
-  console.log(artist)
   try {
     await artist.save()
     req.flash('success_msg', 'Success creating Artist')

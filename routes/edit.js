@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     // const link = new Link()
     res.render('./admin/edit', { artists, publications, institutions })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.redirect('/')
   }
 })
