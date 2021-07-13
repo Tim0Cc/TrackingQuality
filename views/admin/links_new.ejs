@@ -1,0 +1,30 @@
+<div class="bg-dark pb-5">
+
+  <div class="container py-4 text-info">
+    <h2>Administration Page for <em>CRUD</em>-operations - Links</h2>
+    <div class="btn-row">
+      <a href="/edit" class="btn btn-warning">edit</a>
+    </div>
+  </div>
+
+<!-- LINK -->
+
+  <div class="container bg-light bg-gradient mb-3 border rounded">
+    <form action="/create/link" method="POST" class="px-4 py-3">
+      <div class="form-group">
+        <label for="link" class="form-label fs-4 fw-bolder">link</label>
+        <input type="text" name="linkName" id="link-name" class="form-control mb-2">
+      </div>
+      <div class="">
+        <label class="form-label fs-5 fw-normal">link artists</label>
+        <select name="linkArtists" class="form-select" multiple>
+          <% artists.forEach(artist => { %>
+            <option label="<%= artist.name %>" value="<%= artist.id %>">
+          <% }) %> 
+        </select>
+      </div>
+      <%- include('../admin/partials/_button_submit') %> 
+    </form>
+  </div>
+
+</div>

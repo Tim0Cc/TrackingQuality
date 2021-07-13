@@ -3,12 +3,25 @@ const router = express.Router()
 const Artist = require('../models/artist')
 const Publication = require('../models/publication')
 const Institution = require('../models/institution')
+const Link = require('../models/link')
+
+router.get('/link', async (req, res) => {
+  const link = new Link()
+  try {
+    const artists = await Artist.find({}).sort('name').exec()
+    const publications =  await Publication.find({}).sort('name').exec()
+    const institutions =  await Institution.find({}).sort('name').exec()
+    res.render('./admin/links_new', { link, publications, institutions, artists })
+  } catch (error) {
+    console.log(error)
+    res.redirect('/')
+  }
+})
 
 router.get('/', async (req, res) => {
   const artist = new Artist()
   const publication =  new Publication()
   const institution = new Institution()
-  // const link = new Link()
   try {
     const artists = await Artist.find({}).sort('name').exec()
     res.render('./admin/new', { artist, publication, institution, artists })
