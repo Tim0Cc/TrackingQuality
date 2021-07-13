@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   const publication =  new Publication()
   // const link = new Link()
   try {
-    const artists = await Artist.find({})
+    const artists = await Artist.find({}).sort('name').exec()
     res.render('./admin/new', { artist, publication, artists })
   } catch (error) {
     console.log(error)
