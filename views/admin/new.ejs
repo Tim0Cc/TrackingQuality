@@ -5,27 +5,27 @@
   </div>
 
   <div class="container bg-light bg-gradient mb-3 border rounded">
-    <form action="/links" method="POST" class="px-4 py-3">
+    <form action="/create/links" method="POST" class="px-4 py-3">
       <div class="form-group">
         <label for="link" class="form-label fs-4 fw-bolder">link</label>
         <input type="text" name="linkName" id="link-name" class="form-control mb-2">
-        <%- include('./partials/_button_submit') %> 
+        <%- include('../admin/partials/_button_submit') %> 
       </div>
     </form>
   </div>
 
   <div class="container bg-light bg-gradient mb-3 border rounded">
-    <form action="/artists" method="POST" class="px-4 py-3">
+    <form action="/create/artist" method="POST" class="px-4 py-3">
       <div class="form-group">
         <label for="artist" class="form-label fs-4 fw-bolder">artist</label>
         <input type="text" name="artistName" id="artist-name" class="form-control mb-2">
       </div>
-      <%- include('./partials/_button_submit') %> 
+      <%- include('../admin/partials/_button_submit') %> 
     </form>
   </div>
 
   <div class="container bg-light bg-gradient mb-3 border rounded">
-    <form action="/publications" method="POST" class="px-4 py-3">
+    <form action="/create/publication" method="POST" class="px-4 py-3">
       <div class="form-group">
         <label for="publication" class="form-label fs-4 fw-bolder">publication</label>
         <input type="text" name="publicationName" id="publication-name" class="form-control mb-2">
@@ -38,7 +38,7 @@
           <% }) %> 
         </select>
       </div>
-      <%- include('./partials/_button_submit') %> 
+      <%- include('../admin/partials/_button_submit') %> 
     </form>
   </div>
 

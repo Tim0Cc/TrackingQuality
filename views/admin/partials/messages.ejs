@@ -1,0 +1,22 @@
+<% if (locals.successMessage != null) { %> 
+  <%= successMessage %>
+<% } %> 
+<% if (locals.errorMessage != null) { %> 
+  <%= errorMessage %>
+<% } %> 
+
+<% if(success_msg != '') { %>
+  <div class="messages messages-success">
+    <%= success_msg %>
+  </div>
+<% } %>
+<% if(error_msg != '') { %>
+  <div class="messages messages-danger">
+    <%= error_msg %>
+  </div>
+<% } %> 
+<% if(error != '') { %>
+  <div class="messages messages-danger">
+   <%= error %>
+  </div>
+<% } %>
