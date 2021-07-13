@@ -1,9 +1,11 @@
 <div class="bg-dark pb-5">
 
   <div class="container py-4 text-info">
-    <h2>From Index.ejs</h2>
+    <h2>Administration Page for <em>CRUD</em>-operations</h2>
+    <div class="btn-row">
+      <a href="/create" class="btn btn-primary">create</a>
+    </div>
     <a href="/login">Login</a>
-    <h2>––––––––––––––––––––––––––––––––––––––––––</h2>
   </div>
 
   <!-- ARTISTS -->
@@ -15,7 +17,7 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col-11">
-              <form action="/update/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
+              <form action="/edit/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= artist.name %>_form" class="form_label fs-5"><%= artist.name %></label>
@@ -47,7 +49,7 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col-11">
-              <form action="update/publications/<%= publication.id %>?_method=PUT" method="POST" class="">
+              <form action="edit/publications/<%= publication.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= publication.name %>_form" class="form_label fs-5"><%= publication.name %></label>
@@ -98,7 +100,7 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col-11">
-              <form action="update/institutions/<%= institution.id %>?_method=PUT" method="POST" class="">
+              <form action="edit/institutions/<%= institution.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= institution.name %>_form" class="form_label fs-5"><%= institution.name %></label>

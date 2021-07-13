@@ -11,11 +11,11 @@ router.delete('/artists/:id', async (req, res) => {
     artistPublications = await Publication.findOne({ artists: artist.id })
     if (artistPublications != null) {
       req.flash('error_msg', 'Artist still has Publications connected')
-      return res.redirect('/update')
+      return res.redirect('/edit')
     }
     await artist.remove()
     req.flash('success_msg', 'Success deleting Artist')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Artist')
@@ -29,7 +29,7 @@ router.delete('/publications/:id', async (req, res) => {
     publication = await Publication.findById(req.params.id)
     await publication.remove()
     req.flash('success_msg', 'Success deleting Publication')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Publication')
@@ -43,7 +43,7 @@ router.delete('/institutions/:id', async (req, res) => {
     institution = await Institution.findById(req.params.id)
     await institution.remove()
     req.flash('success_msg', 'Success deleting Institution')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Institution')

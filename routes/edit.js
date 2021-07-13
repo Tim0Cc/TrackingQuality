@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     const publications =  await Publication.find({}).sort('name').populate('artists').exec()
     const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
     // const link = new Link()
-    res.render('./admin/updatedelete', { artists, publications, institutions })
+    res.render('./admin/edit', { artists, publications, institutions })
   } catch (error) {
     console.log(error)
     res.redirect('/')
@@ -25,11 +25,11 @@ router.put('/artists/:id', async (req, res) => {
     artist.name = req.body.artistName.trim()
     await artist.save()
     req.flash('success_msg', 'Success Updating Artist')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error Updating Artist')
-    res.redirect('/update')
+    res.redirect('/edit')
   }
 })
 
@@ -43,11 +43,11 @@ router.put('/publications/:id', async (req, res) => {
     publication.artists = publicationArtists
     await publication.save()
     req.flash('success_msg', 'Success Updating publication')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error Updating publication')
-    res.redirect('/update')
+    res.redirect('/edit')
   }
 })
 
@@ -61,11 +61,11 @@ router.put('/institutions/:id', async (req, res) => {
     institution.artists = institutionArtists
     await institution.save()
     req.flash('success_msg', 'Success Updating institution')
-    res.redirect('/update')
+    res.redirect('/edit')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error Updating institution')
-    res.redirect('/update')
+    res.redirect('/edit')
   }
 })
 
