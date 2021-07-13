@@ -38,9 +38,7 @@ router.post('/publication', async (req, res) => {
     name: req.body.publicationName.trim()
   })
   const publicationArtists = req.body.publicationArtists
-  if (publicationArtists != undefined) {
-    typeof publicationArtists == 'string' ? publication.artists.push(publicationArtists) : pushArray(publication, publicationArtists)
-  }
+  checkInputType(publication, publicationArtists)
   try {
     await publication.save()
     res.redirect('/create' )
@@ -52,6 +50,12 @@ router.post('/publication', async (req, res) => {
     })
   }
 })
+
+function checkInputType(publication, publicationArtists) {
+  if (publicationArtists != undefined) {
+    typeof publicationArtists == 'string' ? publication.artists.push(publicationArtists) : pushArray(publication, publicationArtists)
+  }
+}
 
 function pushArray(pub, pubArtists) {
   pubArtists.forEach(publicationArtist => {
