@@ -12,13 +12,13 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col-11">
-              <form action="/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
+              <form action="/update/artists/<%= artist.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= artist.name %>_form" class="form_label fs-5"><%= artist.name %></label>
                   </div>
                   <div class="col">
-                    <input type="text" name="artistName" class="form-control" id="<%= artist.name %>_form" placeholder="<%= artist.name %>">
+                    <input type="text" name="artistName" class="form-control" id="<%= artist.name %>_form"  value="<%= artist.name %>">
                   </div>
                   <div class="col">
                     <button type="submit" class="btn btn-warning">Update</button>
@@ -43,7 +43,7 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col-11">
-              <form action="/artists/<%= publication.id %>?_method=PUT" method="POST" class="">
+              <form action="update/publications/<%= publication.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= publication.name %>_form" class="form_label fs-5"><%= publication.name %></label>

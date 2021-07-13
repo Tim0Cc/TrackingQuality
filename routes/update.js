@@ -15,8 +15,20 @@ router.get('/', async (req, res) => {
     res.redirect('/')
   }
 })
-router.get('/', (req, res) => {
 
+router.put('/artists/:id', async (req, res) => {
+  let artist
+  try {
+    artist = await Artist.findById(req.params.id)
+    artist.name = req.body.artistName.trim()
+    await artist.save()
+    req.flash('success_msg', 'Success Updating Artist')
+    res.redirect('/update')
+  } catch (error) {
+    console.error(error)
+    req.flash('error_msg', 'Error Updating Artist')
+    res.redirect('/update')
+  }
 })
 
 module.exports = router
