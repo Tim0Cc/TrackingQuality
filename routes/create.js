@@ -38,10 +38,9 @@ router.post('/publication', async (req, res) => {
     name: req.body.publicationName.trim()
   })
   const publicationArtists = req.body.publicationArtists
-  publicationArtists.forEach(publicationArtist => {
-    publication.artists.push(publicationArtist)
-  })
-  console.log(publication)
+  if (publicationArtists != undefined) {
+    typeof publicationArtists == 'string' ? publication.artists.push(publicationArtists) : pushArray(publication, publicationArtists)
+  }
   try {
     await publication.save()
     res.redirect('/create' )
@@ -53,5 +52,11 @@ router.post('/publication', async (req, res) => {
     })
   }
 })
+
+function pushArray(pub, pubArtists) {
+  pubArtists.forEach(publicationArtist => {
+    pub.artists.push(publicationArtist)
+  })
+}
 
 module.exports = router

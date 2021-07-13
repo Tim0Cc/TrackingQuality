@@ -31,4 +31,19 @@ router.put('/artists/:id', async (req, res) => {
   }
 })
 
+router.put('/publications/:id', async (req, res) => {
+  let publication
+  try {
+    publication = await Publication.findById(req.params.id)
+    publication.name = req.body.publicationName.trim()
+    await publication.save()
+    req.flash('success_msg', 'Success Updating publication')
+    res.redirect('/update')
+  } catch (error) {
+    console.error(error)
+    req.flash('error_msg', 'Error Updating publication')
+    res.redirect('/update')
+  }
+})
+
 module.exports = router
