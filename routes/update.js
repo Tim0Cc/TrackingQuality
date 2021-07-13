@@ -35,7 +35,12 @@ router.put('/publications/:id', async (req, res) => {
   let publication
   try {
     publication = await Publication.findById(req.params.id)
+    const publicationArtists = req.body.publicationArtists
     publication.name = req.body.publicationName.trim()
+    if (publicationArtists != undefined) {
+      typeof publicationArtists == 'string' ? publication.artists.push(publicationArtists) : pushArray(publication, publicationArtists)
+    }
+    publication.artists = publicationArtists
     await publication.save()
     req.flash('success_msg', 'Success Updating publication')
     res.redirect('/update')
@@ -45,5 +50,11 @@ router.put('/publications/:id', async (req, res) => {
     res.redirect('/update')
   }
 })
+
+function pushArray(pub, pubArtists) {
+  pubArtists.forEach(publicationArtist => {
+    pub.artists.push(publicationArtist)
+  })
+}
 
 module.exports = router
