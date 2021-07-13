@@ -20,5 +20,17 @@ router.delete('/artists/:id', async (req, res) => {
   }
 })
 
+router.delete('/publications/:id', async (req, res) => {
+  let publication
+  try {
+    publication = await Publication.findById(req.params.id)
+    await publication.remove()
+    res.redirect('/update')
+  } catch (error) {
+    console.error(error)
+    res.redirect('/')
+  }
+})
+
 
 module.exports = router
