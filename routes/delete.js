@@ -3,6 +3,21 @@ const router = express.Router()
 const Artist = require('../models/artist')
 const Publication = require('../models/publication')
 const Institution = require('../models/institution')
+const Link = require('../models/link')
+
+router.delete('/links/:id', async (req, res) => {
+  let link
+  try {
+    link = await Link.findById(req.params.id)
+    await link.remove()
+    req.flash('success_msg', 'Success deleting link')
+    res.redirect('/edit/links')
+  } catch (error) {
+    console.error(error)
+    req.flash('error_msg', 'Error deleting link')
+    res.redirect('/edit/links')
+  }
+})
 
 router.delete('/artists/:id', async (req, res) => {
   let artist
@@ -21,7 +36,7 @@ router.delete('/artists/:id', async (req, res) => {
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Artist')
-    res.redirect('/')
+    res.redirect('/edit')
   }
 })
 
@@ -35,7 +50,7 @@ router.delete('/publications/:id', async (req, res) => {
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Publication')
-    res.redirect('/')
+    res.redirect('/edit')
   }
 })
 
@@ -49,9 +64,8 @@ router.delete('/institutions/:id', async (req, res) => {
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error deleting Institution')
-    res.redirect('/')
+    res.redirect('/edit')
   }
 })
-
 
 module.exports = router

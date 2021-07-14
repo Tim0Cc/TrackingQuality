@@ -11,7 +11,7 @@ router.get('/link', async (req, res) => {
     const artists = await Artist.find({}).sort('name').exec()
     const publications =  await Publication.find({}).sort('name').exec()
     const institutions =  await Institution.find({}).sort('name').exec()
-    res.render('./admin/links_new', { link, publications, institutions, artists })
+    res.render('./admin/new_link', { link, publications, institutions, artists })
   } catch (error) {
     console.log(error)
     res.redirect('/')

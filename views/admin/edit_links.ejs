@@ -1,0 +1,89 @@
+<div class="bg-dark pb-5 text-dark">
+
+  <div class="container py-4 text-info">
+    <h2>Administration Page for <em>CRUD</em>-operations – Links</h2>
+    <div class="btn-row">
+      <a href="/create" class="btn btn-primary">create</a>
+    </div>
+    <a href="/login">Login</a>
+  </div>
+
+  <div class="container links mb-3 py-3 border rounded bg-light">
+    <h4>links:</h4>
+    <ul class="list-group">
+      <% links.forEach(link => { %>
+        <li class="list-group-item"> 
+          <div class="row">
+            <div class="col">
+              <form action="edit/links/<%= link.id %>?_method=PUT" method="POST" class="">
+                <div class="row">
+                  <div class="col">
+                    <label for="<%= link.linkUrl %>_form" class="form_label fs-5"><%= link.linkUrl %></label>
+                    <input type="text" name="linkUrl" class="form-control" id="<%= link.linkUrl %>_form" value="<%= link.linkUrl %>">
+                    <%- include('../admin/partials/_input_types') %> 
+                  </div>
+                  <div class="col">
+                    <label class="form-label fs-6 fw-normal">link artists:</label>
+                    <% link.artists.forEach( linkArtist => { %>
+                      <li>
+                        <%= linkArtist.name %> 
+                      </li>
+                    <% }) %> 
+                    <select name="linkArtists" class="form-control form-control-sm" multiple>
+                      <% artists.forEach(artist => { %>
+                        <% if (link.artists.includes(artist.id)) { %>
+                          <option selected label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } else { %> 
+                          <option label="<%= artist.name %>" value="<%= artist.id %>">
+                        <% } %> 
+                      <% }) %> 
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label class="form-label fs-6 fw-normal">link publications:</label>
+                    <% link.publications.forEach( linkPublication => { %>
+                      <li>
+                        <%= linkPublication.name %> 
+                      </li>
+                    <% }) %> 
+                    <select name="linkPublications" class="form-control form-control-sm" multiple>
+                      <% publications.forEach(publication => { %>
+                        <% if (link.publications.includes(publication.id)) { %>
+                          <option selected label="<%= publication.name %>" value="<%= publication.id %>">
+                        <% } else { %> 
+                          <option label="<%= publication.name %>" value="<%= publication.id %>">
+                        <% } %> 
+                      <% }) %> 
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label class="form-label fs-6 fw-normal">link artists:</label>
+                    <% link.institutions.forEach( linkInstitution => { %>
+                      <li>
+                        <%= linkInstitution.name %> 
+                      </li>
+                    <% }) %> 
+                    <select name="linkInstitutions" class="form-control form-control-sm" multiple>
+                      <% institutions.forEach(institution => { %>
+                        <% if (link.institutions.includes(institution.id)) { %>
+                          <option selected label="<%= institution.name %>" value="<%= institution.id %>">
+                        <% } else { %> 
+                          <option label="<%= institution.name %>" value="<%= institution.id %>">
+                        <% } %> 
+                      <% }) %> 
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <button type="submit" class="btn btn-warning float-end">Update</button>
+                  </div>
+                </div>
+              </form>
+              <div class="float-end">
+                <%- include('./partials/deleteForm', { url: `/delete/links/${link.id}`}) %> 
+              </div>
+            </div>
+          </div>
+        </li>
+      <% }) %> 
+    </ul>
+  </div>
