@@ -58,10 +58,10 @@
                       <input type="text" name="publicationName" class="form-control" id="<%= publication.name %>_form" value="<%= publication.name %>">
                     <!-- </div> -->
                   </div>
-                  <div class="col">
-                    <%- include('../admin/partials/_input_types') %> 
-                    <!-- <label class="form-label fs-6 fw-normal">publication artists:</label> -->
-                  </div>
+                  <!-- <div class="col">
+                    <%#- include('../admin/partials/_input_types') %> 
+                    <label class="form-label fs-6 fw-normal">publication artists:</label>
+                  </div> -->
                   <div class="col">
                     <% publication.artists.forEach( publicationArtist => { %>
                       <li>
@@ -110,10 +110,10 @@
                       <input type="text" name="institutionName" class="form-control" id="<%= institution.name %>_form" value="<%= institution.name %>">
                     <!-- </div> -->
                   </div>
-                  <div class="col">
-                    <%- include('../admin/partials/_input_types') %> 
-                    <!-- <label class="form-label fs-6 fw-normal">artists:</label> -->
-                  </div>
+                  <!-- <div class="col">
+                    <%#- include('../admin/partials/_input_types') %> 
+                    <label class="form-label fs-6 fw-normal">artists:</label>
+                  </div> -->
                   <div class="col">
                     <% institution.artists.forEach( institutionArtist => { %>
                       <li>
