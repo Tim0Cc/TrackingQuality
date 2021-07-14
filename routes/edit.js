@@ -25,20 +25,23 @@ router.put('/links/:id', async (req, res) => {
   try {
     link = await Link.findById(req.params.id)
     link.linkUrl = req.body.linkUrl.trim()
+    link.linkType = req.body.linkType
     const linkArtists = req.body.linkArtists
     checkInputTypeOfArtists(link, linkArtists)
+    link.artists = linkArtists
     const linkPublications = req.body.linkPublications
     checkInputTypeOfPublications(link, linkPublications)
+    link.publications = linkPublications
     const linkInstitutions = req.body.linkInstitutions
     checkInputTypeOfInstitutions(link, linkInstitutions)
-    link.artists = linkArtists
+    link.institutions = linkInstitutions
     await link.save()
     req.flash('success_msg', 'Success Updating link')
-    res.redirect('/edit')
+    res.redirect('/edit/links')
   } catch (error) {
     console.error(error)
     req.flash('error_msg', 'Error Updating link')
-    res.redirect('/edit')
+    res.redirect('/edit/links')
   }
 })
 

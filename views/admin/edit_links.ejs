@@ -15,12 +15,12 @@
         <li class="list-group-item"> 
           <div class="row">
             <div class="col">
-              <form action="edit/links/<%= link.id %>?_method=PUT" method="POST" class="">
+              <form action="links/<%= link.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
                     <label for="<%= link.linkUrl %>_form" class="form_label fs-5"><%= link.linkUrl %></label>
                     <input type="text" name="linkUrl" class="form-control" id="<%= link.linkUrl %>_form" value="<%= link.linkUrl %>">
-                    <%- include('../admin/partials/_input_types') %> 
+                    <%- include('../admin/partials/_input_types', { link : link }) %> 
                   </div>
                   <div class="col">
                     <label class="form-label fs-6 fw-normal">link artists:</label>

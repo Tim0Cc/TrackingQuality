@@ -1,28 +1,46 @@
 <div>
-  type:
+  type: <%= link.linkType %> 
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio1" name="linkType" value="website">
+  <input class="form-check-input" type="radio" id="inlineRadio1" name="linkType" value="website" 
+  <% if ( link.linkType == "website") { %>
+    <%= 'checked' %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio1">website</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio2" name="linkType" value="book">
+  <input class="form-check-input" type="radio" id="inlineRadio2" name="linkType" value="book"
+  <% if (link.linkType == 'book') { %>
+    <%= 'checked' %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio2">book</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio3" name="linkType" value="article">
+  <input class="form-check-input" type="radio" id="inlineRadio3" name="linkType" value="article"
+  <% if (link.linkType == 'article') { %>
+    <%= 'checked' %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio3">article</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio4" name="linkType" value="video">
+  <input class="form-check-input" type="radio" id="inlineRadio4" name="linkType" value="video"
+  <% if (link.linkType == 'video') { %>
+    <%= 'checked' %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio4">video</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio5" name="linkType" value="channel">
+  <input class="form-check-input" type="radio" id="inlineRadio5" name="linkType" value="channel"
+  <% if (link.linkType == 'channel') { %>
+    <%= 'checked' %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio5">channel</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineRadio6" name="linkType" value="library">
+  <input class="form-check-input" type="radio" id="inlineRadio6" name="linkType" value="library"
+  <% if (link.LinkType == 'library') { %>
+    <%= checked %>
+  <% } %>>
   <label class="form-check-label" for="inlineRadio6">library</label>
 </div>
 <!-- <div class="form-check form-check-inline">
