@@ -10,7 +10,8 @@ router.delete('/artists/:id', async (req, res) => {
     artist = await Artist.findById(req.params.id)
     artistPublications = await Publication.findOne({ artists: artist.id })
     artistInstitutions = await Institution.findOne({ artists: artist.id })
-    if (artistPublications != null || artistInstitutions != null) {
+    artistLinks = await Link.findOne({ artists: artist.id })
+    if (artistPublications != null || artistInstitutions != null || artistLinks != null) {
       req.flash('error_msg', 'Artist still has Publications or Institutions connected')
       return res.redirect('/edit')
     }
