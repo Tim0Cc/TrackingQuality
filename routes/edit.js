@@ -38,8 +38,8 @@ router.put('/publications/:id', async (req, res) => {
   let publication
   try {
     publication = await Publication.findById(req.params.id)
-    const publicationArtists = req.body.publicationArtists
     publication.name = req.body.publicationName.trim()
+    const publicationArtists = req.body.publicationArtists
     checkInputType(publication, publicationArtists)
     publication.artists = publicationArtists
     await publication.save()
@@ -56,8 +56,8 @@ router.put('/institutions/:id', async (req, res) => {
   let institution
   try {
     institution = await Institution.findById(req.params.id)
-    const institutionArtists = req.body.institutionArtists
     institution.name = req.body.institutionName.trim()
+    const institutionArtists = req.body.institutionArtists
     checkInputType(institution, institutionArtists)
     institution.artists = institutionArtists
     await institution.save()

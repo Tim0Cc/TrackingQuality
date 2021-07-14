@@ -103,6 +103,9 @@ router.post('/institution', async (req, res) => {
   }
 })
 
+
+// PRIVATE METHODS
+
 function checkInputTypeOfArtists(instance, instanceArtists) {
   if (instanceArtists != undefined) {
     typeof instanceArtists == 'string' ? instance.artists.push(instanceArtists) : pushInstanceArtistsArray(instance, instanceArtists)
