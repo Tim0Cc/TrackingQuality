@@ -103,7 +103,6 @@ router.post('/institution', async (req, res) => {
   }
 })
 
-
 // PRIVATE METHODS
 
 function checkInputTypeOfArtists(instance, instanceArtists) {
