@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-position: center;
   color: white !important;
+  text-align: center;
 }
 
 body > .container {
@@ -15,4 +16,8 @@ body > .container {
 
 footer {
   background-color: hsla(210, 11%, 15%, 100%);
+}
+
+li {
+  list-style-type: none;
 }
