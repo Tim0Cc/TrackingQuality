@@ -33,9 +33,6 @@ app.use(expressLayout)
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
-// app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
-// app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
-// app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 
 app.use(session({
