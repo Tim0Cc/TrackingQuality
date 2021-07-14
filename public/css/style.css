@@ -1,17 +1,16 @@
 body {
   background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-image: linear-gradient(to right, hsla(210, 11%, 15%, 0%), hsla(210, 11%, 15%, 100%), hsla(210, 11%, 15%, 0%)), url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-image: linear-gradient(to right, hsla(210, 11%, 15%, 0%), hsla(210, 11%, 15%, 80%) 10%, hsla(210, 11%, 15%, 100%), hsla(210, 11%, 15%, 80%) 90%, hsla(210, 11%, 15%, 0%)), url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   ;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: white !important;
-  text-align: center;
 }
 
 body > .container {
-  background-color: hsla(210, 11%, 15%, 89%);
+  /* background-color: hsla(210, 11%, 15%, 89%); */
 }
 
 footer {
