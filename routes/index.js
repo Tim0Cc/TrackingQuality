@@ -3,7 +3,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) =>{
   try {
-    res.render('index')
+    res.render('index', { mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/admin/error')
@@ -11,10 +11,10 @@ router.get('/', async (req, res) =>{
 })
 
 router.get('/impressum', (req, res) =>{
-  res.render('../public/pages/impressum')
+  res.render('../public/pages/impressum', { mailadress: process.env.MAILADRESS })
 })
 router.get('/datenschutz', (req, res) =>{
-  res.render('../public/pages/datenschutz')
+  res.render('../public/pages/datenschutz', { mailadress: process.env.MAILADRESS })
 })
 
 module.exports = router
