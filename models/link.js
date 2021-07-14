@@ -1,7 +1,7 @@
 const mongoose =  require('mongoose')
 
 const LinkSchema = new mongoose.Schema({
-  name: {
+  linkUrl: {
     type: String,
     required: true
   },
@@ -15,10 +15,10 @@ const LinkSchema = new mongoose.Schema({
     required: true,
     default: Date.now
   },
-  type: [{
-    type: mongoose.Schema.Types.ObjectId,
+  linkType: {
+    type: String,
     required: true
-  }],
+  },
   artists: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Artist'
