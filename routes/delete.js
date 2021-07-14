@@ -27,7 +27,7 @@ router.delete('/artists/:id', async (req, res) => {
     artistInstitutions = await Institution.findOne({ artists: artist.id })
     artistLinks = await Link.findOne({ artists: artist.id })
     if (artistPublications != null || artistInstitutions != null || artistLinks != null) {
-      req.flash('error_msg', 'Artist still has Publications or Institutions connected')
+      req.flash('error_msg', 'Artist still has Publications or Institutions or Links connected')
       return res.redirect('/edit')
     }
     await artist.remove()
@@ -44,6 +44,11 @@ router.delete('/publications/:id', async (req, res) => {
   let publication
   try {
     publication = await Publication.findById(req.params.id)
+    publicationLinks = await Link.findOne({ publications: publication.id })
+    if (publicationLinks != null) {
+      req.flash('error_msg', 'Publication still has Links connected')
+      return res.redirect('/edit')
+    }
     await publication.remove()
     req.flash('success_msg', 'Success deleting Publication')
     res.redirect('/edit')
@@ -58,6 +63,11 @@ router.delete('/institutions/:id', async (req, res) => {
   let institution
   try {
     institution = await Institution.findById(req.params.id)
+    institutionLinks = await Link.findOne({ institutions: institution.id })
+    if (institutionLinks != null) {
+      req.flash('error_msg', 'institution still has Links connected')
+      return res.redirect('/edit')
+    }
     await institution.remove()
     req.flash('success_msg', 'Success deleting Institution')
     res.redirect('/edit')
@@ -67,5 +77,14 @@ router.delete('/institutions/:id', async (req, res) => {
     res.redirect('/edit')
   }
 })
+
+// PRIVATE
+
+// function checkDeletable(instanceLinks) {
+//   if (instanceLinks != null) {
+//     req.flash('error_msg', 'Instance still has References')
+//     return res.redirect('/edit')
+//   }
+// }
 
 module.exports = router
