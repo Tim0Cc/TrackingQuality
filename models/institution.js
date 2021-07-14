@@ -7,7 +7,7 @@ const InstitutionSchema = new mongoose.Schema({
   },
   type: [{
     type: mongoose.Schema.Types.ObjectId,
-    required: true
+    // required: true
   }],
   createdAt: {
     type: Date,

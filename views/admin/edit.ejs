@@ -1,4 +1,4 @@
-<div class="bg-dark pb-5">
+<div class="bg-dark pb-5 text-dark">
 
   <div class="container py-4 text-info">
     <h2>Administration Page for <em>CRUD</em>-operations</h2>
@@ -24,6 +24,7 @@
                   </div>
                   <div class="col">
                     <input type="text" name="artistName" class="form-control" id="<%= artist.name %>_form"  value="<%= artist.name %>">
+                    <%#- include('../admin/partials/_input_types') %> 
                   </div>
                   <div class="col">
                     <button type="submit" class="btn btn-warning">Update</button>
@@ -53,12 +54,13 @@
                 <div class="row">
                   <div class="col">
                     <label for="<%= publication.name %>_form" class="form_label fs-5"><%= publication.name %></label>
+                    <!-- <div class="col"> -->
+                      <input type="text" name="publicationName" class="form-control" id="<%= publication.name %>_form" value="<%= publication.name %>">
+                    <!-- </div> -->
                   </div>
                   <div class="col">
-                    <input type="text" name="publicationName" class="form-control" id="<%= publication.name %>_form" value="<%= publication.name %>">
-                  </div>
-                  <div class="col">
-                    <label class="form-label fs-6 fw-normal">publication artists:</label>
+                    <%- include('../admin/partials/_input_types') %> 
+                    <!-- <label class="form-label fs-6 fw-normal">publication artists:</label> -->
                   </div>
                   <div class="col">
                     <% publication.artists.forEach( publicationArtist => { %>
@@ -76,7 +78,7 @@
                       <% }) %> 
                     </select>
                   </div>
-                  <div class="col">
+                  <div class="col-1">
                     <button type="submit" class="btn btn-warning">Update</button>
                   </div>
                 </div>
@@ -104,12 +106,13 @@
                 <div class="row">
                   <div class="col">
                     <label for="<%= institution.name %>_form" class="form_label fs-5"><%= institution.name %></label>
+                    <!-- <div class="col"> -->
+                      <input type="text" name="institutionName" class="form-control" id="<%= institution.name %>_form" value="<%= institution.name %>">
+                    <!-- </div> -->
                   </div>
                   <div class="col">
-                    <input type="text" name="institutionName" class="form-control" id="<%= institution.name %>_form" value="<%= institution.name %>">
-                  </div>
-                  <div class="col">
-                    <label class="form-label fs-6 fw-normal">institution artists:</label>
+                    <%- include('../admin/partials/_input_types') %> 
+                    <!-- <label class="form-label fs-6 fw-normal">artists:</label> -->
                   </div>
                   <div class="col">
                     <% institution.artists.forEach( institutionArtist => { %>
@@ -127,7 +130,7 @@
                       <% }) %> 
                     </select>
                   </div>
-                  <div class="col">
+                  <div class="col-1">
                     <button type="submit" class="btn btn-warning">Update</button>
                   </div>
                 </div>

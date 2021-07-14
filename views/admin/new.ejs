@@ -1,4 +1,4 @@
-<div class="bg-dark pb-5">
+<div class="bg-dark pb-5 text-dark">
 
   <div class="container py-4 text-info">
     <h2>Administration Page for <em>CRUD</em>-operations</h2>
@@ -15,6 +15,7 @@
         <label for="artist" class="form-label fs-4 fw-bolder">artist</label>
         <input type="text" name="artistName" id="artist-name" class="form-control mb-2">
       </div>
+      <%#- include('../admin/partials/_input_types') %> 
       <%- include('../admin/partials/_button_submit') %> 
     </form>
   </div>
@@ -35,6 +36,7 @@
           <% }) %> 
         </select>
       </div>
+      <%- include('../admin/partials/_input_types') %> 
       <%- include('../admin/partials/_button_submit') %> 
     </form>
   </div>
@@ -55,6 +57,7 @@
           <% }) %> 
         </select>
       </div>
+      <%- include('../admin/partials/_input_types') %> 
       <%- include('../admin/partials/_button_submit') %> 
     </form>
   </div>
