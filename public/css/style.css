@@ -27,6 +27,13 @@ li {
   list-style-type: none;
 }
 
-#artists {
+body {
   position: relative;
 }
+
+/* #navbar-artists {
+  background-color: white;
+} */
+/* #navbar-artists .nav-link.active {
+  font-weight: bold;
+} */
