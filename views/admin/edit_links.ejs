@@ -22,12 +22,18 @@
               <form action="links/<%= link.id %>?_method=PUT" method="POST" class="">
                 <div class="row">
                   <div class="col">
-                    <label for="<%= link.linkUrl %>_form" class="form_label fs-5"><%= link.linkUrl %></label>
+                    <label for="<%= link.title %>_form" class="form_label fw-bold">title</label>
+                    <input type="text" name="title" class="form-control" id="<%= link.title %>_form" value="<%= link.title %>">
+                    <label for="<%= link.description %>_form" class="form_label fw-bold">description</label>
+                    <input type="text" name="description" class="form-control" id="<%= link.description %>_form" value="<%= link.description %>">
+                    <label for="<%= link.linkUrl %>_form" class="form_label fw-bold">url</label>
                     <input type="text" name="linkUrl" class="form-control" id="<%= link.linkUrl %>_form" value="<%= link.linkUrl %>">
+                  </div>
+                  <div class="col">
                     <%- include('../admin/partials/_input_types', { link : link }) %> 
                   </div>
                   <div class="col">
-                    <label class="form-label fs-6 fw-normal">link artists:</label>
+                    <label class="form-label fs-6 fw-bold">link artists:</label>
                     <% link.artists.forEach( linkArtist => { %>
                       <li>
                         <%= linkArtist.name %> 
@@ -44,7 +50,7 @@
                     </select>
                   </div>
                   <div class="col">
-                    <label class="form-label fs-6 fw-normal">link publications:</label>
+                    <label class="form-label fs-6 fw-bold">link publications:</label>
                     <% link.publications.forEach( linkPublication => { %>
                       <li>
                         <%= linkPublication.name %> 
@@ -61,7 +67,7 @@
                     </select>
                   </div>
                   <div class="col">
-                    <label class="form-label fs-6 fw-normal">link artists:</label>
+                    <label class="form-label fs-6 fw-bold">link artists:</label>
                     <% link.institutions.forEach( linkInstitution => { %>
                       <li>
                         <%= linkInstitution.name %> 

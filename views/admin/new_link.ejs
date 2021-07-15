@@ -15,8 +15,17 @@
 
   <div class="container bg-light bg-gradient mb-3 border rounded">
     <form action="/create/link" method="POST" class="px-4 py-3">
+      <h3>new Link</h3>
       <div class="form-group">
-        <label for="link" class="form-label fs-4 fw-bolder">link</label>
+        <label for="title" class="form-label fs-4 fw-bolder">title</label>
+        <input type="text" name="title" id="title" class="form-control mb-2">
+      </div>
+      <div class="form-group">
+        <label for="description" class="form-label fs-4 fw-bolder">description</label>
+        <input type="text" name="description" id="description" class="form-control mb-2">
+      </div>
+      <div class="form-group">
+        <label for="linkUrl" class="form-label fs-4 fw-bolder">url</label>
         <input type="text" name="linkUrl" id="link-url" class="form-control mb-2">
       </div>
       <div class="form-group">

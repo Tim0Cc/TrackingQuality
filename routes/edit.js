@@ -24,6 +24,8 @@ router.put('/links/:id', async (req, res) => {
   let link
   try {
     link = await Link.findById(req.params.id)
+    link.title = req.body.title.trim()
+    link.description = req.body.description.trim()
     link.linkUrl = req.body.linkUrl.trim()
     link.linkType = req.body.linkType
     const linkArtists = req.body.linkArtists

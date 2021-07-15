@@ -20,6 +20,8 @@ router.get('/link', async (req, res) => {
 
 router.post('/link', async (req, res) => {
   const link = new Link({
+    title: req.body.title.trim(),
+    description: req.body.description.trim(),
     linkUrl: req.body.linkUrl.trim(),
     linkType: req.body.linkType
   })
