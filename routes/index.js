@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const Artist = require('../models/artist')
+const Publication = require('../models/publication')
+const Institution = require('../models/institution')
+const Link = require('../models/link')
 
 router.get('/', async (req, res) =>{
   try {
@@ -12,7 +16,11 @@ router.get('/', async (req, res) =>{
 
 router.get('/artists', async (req, res) =>{
   try {
-    res.render('../public/pages/artists', { mailadress: process.env.MAILADRESS })
+    const artists = await Artist.find({}).sort('name').exec()
+    const publications =  await Publication.find({}).sort('name').populate('artists').exec()
+    const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
+    const links =  await Institution.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
+    res.render('../public/pages/artists', { artists, publications, institutions, links, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/')
@@ -21,7 +29,11 @@ router.get('/artists', async (req, res) =>{
 
 router.get('/publications', async (req, res) =>{
   try {
-    res.render('../public/pages/publications', { mailadress: process.env.MAILADRESS })
+    const artists = await Artist.find({}).sort('name').exec()
+    const publications =  await Publication.find({}).sort('name').populate('artists').exec()
+    const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
+    const links =  await Institution.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
+    res.render('../public/pages/publications', { artists, publications, institutions, links, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/')
@@ -30,7 +42,11 @@ router.get('/publications', async (req, res) =>{
 
 router.get('/institutions', async (req, res) =>{
   try {
-    res.render('../public/pages/institutions', { mailadress: process.env.MAILADRESS })
+    const artists = await Artist.find({}).sort('name').exec()
+    const publications =  await Publication.find({}).sort('name').populate('artists').exec()
+    const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
+    const links =  await Institution.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
+    res.render('../public/pages/institutions', { artists, publications, institutions, links, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/')

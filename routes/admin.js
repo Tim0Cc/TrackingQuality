@@ -6,7 +6,7 @@ const Publication = require('../models/Publication')
 
 router.get('/', async (req, res) =>{
   try {
-    res.render('./admin/admin')
+    res.render('./admin/admin', { mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/admin/error')

@@ -11,7 +11,7 @@ router.get('/link', async (req, res) => {
     const artists = await Artist.find({}).sort('name').exec()
     const publications =  await Publication.find({}).sort('name').exec()
     const institutions =  await Institution.find({}).sort('name').exec()
-    res.render('./admin/new_link', { link, publications, institutions, artists })
+    res.render('./admin/new_link', { link, publications, institutions, artists, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.log(error)
     res.redirect('/')
@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
   const institution = new Institution()
   try {
     const artists = await Artist.find({}).sort('name').exec()
-    res.render('./admin/new', { artist, publication, institution, artists })
+    res.render('./admin/new', { artist, publication, institution, artists, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.log(error)
     res.redirect('/')

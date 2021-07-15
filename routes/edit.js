@@ -13,7 +13,7 @@ router.get('/links', async (req, res) => {
     const publications =  await Publication.find({}).sort('name').exec()
     const institutions =  await Institution.find({}).sort('name').exec()
     const links =  await Link.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
-    res.render('./admin/edit_links', { artists, publications, institutions, links })
+    res.render('./admin/edit_links', { artists, publications, institutions, links, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/')
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
     const publications =  await Publication.find({}).sort('name').populate('artists').exec()
     const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
     // const links =  await Institution.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
-    res.render('./admin/edit', { artists, publications, institutions })
+    res.render('./admin/edit', { artists, publications, institutions, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
     res.redirect('/')
