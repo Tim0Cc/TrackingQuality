@@ -6,7 +6,7 @@
         <ul class="nav flex-column">
           <% let first = true %> 
           <% artists.forEach(artist => { %>
-            <li class="nav-item ">
+            <li class="nav-item">
               <% if (first === true) { %> 
                 <a class="nav-link px-0" href="#<%= artist.id %>"><%= artist.name %></a>
                 <% first = false %> 
