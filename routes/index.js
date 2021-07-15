@@ -19,7 +19,7 @@ router.get('/artists', async (req, res) =>{
     const artists = await Artist.find({}).sort('name').exec()
     const publications =  await Publication.find({}).sort('name').populate('artists').exec()
     const institutions =  await Institution.find({}).sort('name').populate('artists').exec()
-    const links =  await Institution.find({}).sort('name').populate('artists').populate('publications').populate('institutions').exec()
+    const links =  await Link.find({}).sort('type').populate('artists').populate('publications').populate('institutions').exec()
     res.render('../public/pages/artists', { artists, publications, institutions, links, mailadress: process.env.MAILADRESS })
   } catch (error) {
     console.error(error)
