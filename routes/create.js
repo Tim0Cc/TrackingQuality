@@ -5,6 +5,8 @@ const Publication = require('../models/publication')
 const Institution = require('../models/institution')
 const Link = require('../models/link')
 
+const { ensureAuthenticated } = require('../config/auth')
+
 router.get('/link', async (req, res) => {
   const link = new Link()
   try {
@@ -18,7 +20,7 @@ router.get('/link', async (req, res) => {
   }
 })
 
-router.post('/link', async (req, res) => {
+router.post('/link', ensureAuthenticated, async (req, res) => {
   const link = new Link({
     title: req.body.title.trim(),
     description: req.body.description.trim(),
@@ -56,7 +58,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/artist', async (req, res) => {
+router.post('/artist', ensureAuthenticated, async (req, res) => {
   const artist = new Artist({
     name: req.body.artistName.trim()
   })
@@ -71,7 +73,7 @@ router.post('/artist', async (req, res) => {
   }
 })
 
-router.post('/publication', async (req, res) => {
+router.post('/publication', ensureAuthenticated, async (req, res) => {
   const publication = new Publication({
     name: req.body.publicationName.trim()
   })
@@ -88,7 +90,7 @@ router.post('/publication', async (req, res) => {
   }
 })
 
-router.post('/institution', async (req, res) => {
+router.post('/institution', ensureAuthenticated, async (req, res) => {
   const institution = new Institution({
     name: req.body.institutionName.trim()
   })

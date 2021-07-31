@@ -5,6 +5,8 @@ const Publication = require('../models/publication')
 const Institution = require('../models/institution')
 const Link = require('../models/link')
 
+const { ensureAuthenticated } = require('../config/auth')
+
 // LINKS GET & PUT
 
 router.get('/links', async (req, res) => {
@@ -20,7 +22,7 @@ router.get('/links', async (req, res) => {
   }
 })
 
-router.put('/links/:id', async (req, res) => {
+router.put('/links/:id', ensureAuthenticated, async (req, res) => {
   let link
   try {
     link = await Link.findById(req.params.id)
@@ -62,7 +64,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.put('/artists/:id', async (req, res) => {
+router.put('/artists/:id', ensureAuthenticated, async (req, res) => {
   let artist
   try {
     artist = await Artist.findById(req.params.id)
@@ -77,7 +79,7 @@ router.put('/artists/:id', async (req, res) => {
   }
 })
 
-router.put('/publications/:id', async (req, res) => {
+router.put('/publications/:id', ensureAuthenticated, async (req, res) => {
   let publication
   try {
     publication = await Publication.findById(req.params.id)
@@ -95,7 +97,7 @@ router.put('/publications/:id', async (req, res) => {
   }
 })
 
-router.put('/institutions/:id', async (req, res) => {
+router.put('/institutions/:id', ensureAuthenticated, async (req, res) => {
   let institution
   try {
     institution = await Institution.findById(req.params.id)

@@ -5,7 +5,9 @@ const Publication = require('../models/publication')
 const Institution = require('../models/institution')
 const Link = require('../models/link')
 
-router.delete('/links/:id', async (req, res) => {
+const { ensureAuthenticated } = require('../config/auth')
+
+router.delete('/links/:id', ensureAuthenticated, async (req, res) => {
   let link
   try {
     link = await Link.findById(req.params.id)
@@ -19,7 +21,7 @@ router.delete('/links/:id', async (req, res) => {
   }
 })
 
-router.delete('/artists/:id', async (req, res) => {
+router.delete('/artists/:id', ensureAuthenticated, async (req, res) => {
   let artist
   try {
     artist = await Artist.findById(req.params.id)
@@ -40,7 +42,7 @@ router.delete('/artists/:id', async (req, res) => {
   }
 })
 
-router.delete('/publications/:id', async (req, res) => {
+router.delete('/publications/:id', ensureAuthenticated, async (req, res) => {
   let publication
   try {
     publication = await Publication.findById(req.params.id)
@@ -59,7 +61,7 @@ router.delete('/publications/:id', async (req, res) => {
   }
 })
 
-router.delete('/institutions/:id', async (req, res) => {
+router.delete('/institutions/:id', ensureAuthenticated, async (req, res) => {
   let institution
   try {
     institution = await Institution.findById(req.params.id)
@@ -77,14 +79,5 @@ router.delete('/institutions/:id', async (req, res) => {
     res.redirect('/edit')
   }
 })
-
-// PRIVATE
-
-// function checkDeletable(instanceLinks) {
-//   if (instanceLinks != null) {
-//     req.flash('error_msg', 'Instance still has References')
-//     return res.redirect('/edit')
-//   }
-// }
 
 module.exports = router
