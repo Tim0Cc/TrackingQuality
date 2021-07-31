@@ -5,10 +5,6 @@ const PublicationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // type: [{
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   // required: true
-  // }],
   createdAt: {
     type: Date,
     required: true,
