@@ -1,7 +1,7 @@
 <div id="artists" class="page">
   <h2>Artists & Researchers</h2>
   <div class="row">
-    <div class="col-2 border rounded border-white">
+    <div class="col-2 border rounded border-white navbar-container">
       <h5 class="my-3">jump to:</h5>
       <nav id="navbar-artists" class="navbar sticky-top px-0">
         <ul class="nav flex-column">
@@ -28,55 +28,38 @@
               <div class="catalogue-reference-content m-3">
                 <% links.forEach(link => { %>
                   <% link.artists.forEach(linkArtist => { %>
-                    <% if (linkArtist.id == artist.id && link.linkType == 'website') { %>
-                      <ul>
+                    <ul>
+                      <% if (linkArtist.id == artist.id && link.linkType == 'website') { %>
                         <li>
                           <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkArtist.id == artist.id && link.linkType == 'book') { %>
-                      <ul>
+                      <% } %> 
+                      <% if (linkArtist.id == artist.id && link.linkType == 'book') { %>
                         <li>
                           <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkArtist.id == artist.id && link.linkType == 'article') { %>
-                      <ul>
+                      <% } %> 
+                      <% if (linkArtist.id == artist.id && link.linkType == 'article') { %>
                         <li>
                           <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkArtist.id == artist.id && link.linkType == 'video') { %>
-                      <ul>
+                      <% } %> 
+                      <% if (linkArtist.id == artist.id && link.linkType == 'video') { %>
                         <li>
                           <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkArtist.id == artist.id && link.linkType == 'channel') { %>
-                      <ul>
+                      <% } %> 
+                      <% if (linkArtist.id == artist.id && link.linkType == 'channel') { %>
                         <li>
                           <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkArtist.id == artist.id && link.linkType == 'library') { %>
-                      <h5> <%= link.linkType %>  </h5>
-                      <ul>
+                      <% } %> 
+                      <% if (linkArtist.id == artist.id && link.linkType == 'library') { %>
                         <li>
-                          <%= link.title %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
-                        </li>
-                      </ul>
-                    <% } %>
+                      <% } %>
+                    </ul>
                   <% }) %> 
                 <% }) %>          
               </div>

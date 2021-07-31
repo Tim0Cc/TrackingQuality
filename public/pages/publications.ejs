@@ -1,7 +1,7 @@
 <div id="publications" class="page">
   <h2>Publications</h2>
   <div class="row">
-    <div class="col-2 border rounded border-white">
+    <div class="col-2 border rounded border-white navbar-container">
       <nav id="navbar-publications" class="navbar sticky-top px-0">
         <h5 class="my-3">jump to:</h5>
         <ul class="nav flex-column">
@@ -24,106 +24,56 @@
         <div class="catalogue-item">
           <h3 id="<%= publication.id %>" class=""><%= publication.name %></h3>
           <div class="catalogue-references m-4">
-            <div class="catalogue-reference publication-artists">
-              <h4>Authors / Artists / Researchers</h4>
-              <div class="catalogue-reference-content m-3">
-                <ul>
-                  <% publication.artists.forEach(publicationArtist => { %>
-                    <li>                
-                      <%= publicationArtist.name %> 
-                    </li>
-                  <% }) %> 
-                </ul>
-              </div>
-            </div>
             <div class="catalogue-reference publication-links">
-              <h4>Links</h4>
+              <!-- <h4>Links</h4> -->
               <div class="catalogue-reference-content m-3">
                 <% links.forEach(link => { %>
-                  <% link.publications.forEach(linkPublication => { %>
-                    <% if (linkPublication.id == publication.id && link.linkType == 'website') { %>
-                      <ul>
+                  <ul>
+                    <% link.publications.forEach(linkPublication => { %>
+                      <% if (linkPublication.id == publication.id && link.linkType == 'website') { %>
                         <li>
-                          <%= link.title %> (<%= link.linkType %>)
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
+                      <% } %> 
+                      <% if (linkPublication.id == publication.id && link.linkType == 'book') { %>
                         <li>
-                          <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
+                      <% } %> 
+                      <% if (linkPublication.id == publication.id && link.linkType == 'article') { %>
                         <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkPublication.id == publication.id && link.linkType == 'book') { %>
-                      <ul>
+                      <% } %> 
+                      <% if (linkPublication.id == publication.id && link.linkType == 'video') { %>
                         <li>
-                          <%= link.title %> (<%= link.linkType %>)
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
+                      <% } %> 
+                      <% if (linkPublication.id == publication.id && link.linkType == 'channel') { %>
                         <li>
-                          <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
+                      <% } %> 
+                      <% if (linkPublication.id == publication.id && link.linkType == 'library') { %>
                         <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkPublication.id == publication.id && link.linkType == 'article') { %>
-                      <ul>
-                        <li>
-                          <%= link.title %> (<%= link.linkType %>)
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
-                        </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkPublication.id == publication.id && link.linkType == 'video') { %>
-                      <ul>
-                        <li>
-                          <%= link.title %> (<%= link.linkType %>)
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
-                        </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkPublication.id == publication.id && link.linkType == 'channel') { %>
-                      <ul>
-                        <li>
-                          <%= link.title %> (<%= link.linkType %>)
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
-                        </li>
-                      </ul>
-                    <% } %> 
-                    <% if (linkPublication.id == publication.id && link.linkType == 'library') { %>
-                      <h5> <%= link.linkType %>  </h5>
-                      <ul>
-                        <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
-                        </li>
-                      </ul>
-                    <% } %>
-                  <% }) %> 
+                      <% } %> 
+                    <% }) %> 
+                  </ul>
                 <% }) %> 
               </div>         
-            </div>                  
+            </div> 
+            <div class="catalogue-reference publication-artists">
+              <!-- <h4>Authors / Artists / Researchers</h4> -->
+              <div class="catalogue-reference-content m-3">             
+                <% publication.artists.forEach(publicationArtist => { %>
+                  <span>| <%= publicationArtist.name %></span>
+                <% }) %> 
+                <span>|</span>
+              </div>
+            </div>                 
           </div>
         </div>
       <% }) %>
