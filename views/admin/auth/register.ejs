@@ -1,0 +1,39 @@
+<h2>Register</h2>
+<div class="p-5"></div>
+<div class="container">
+  <div class="m-5">
+    <div class="text-center">
+      <form action="/admin/register" method="POST">
+        <div class="form-row">
+          <div class="form-item">
+            <label for="username">username</label>
+            <input type="name" id="username" name="username" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <label for="password">password</label>
+            <input type="password" id="password" name="password" minlength="6" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <label for="password2">password</label>
+            <input type="password" id="password2" name="password2" minlength="6" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-item">
+            <label for="register_token">Token</label>
+            <input type="text" id="register_token" name="register_token" required>
+          </div>
+        </div>
+        <div class="form-row form-row-end">
+          <button class="btn btn-primary" type="submit">registrieren</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="p-5"></div>
+  <div class="p-5"></div>
+</div>

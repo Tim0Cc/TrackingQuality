@@ -1,3 +1,11 @@
+<% if(typeof errors!= 'undefined') { %>
+  <% errors.forEach(function(error){ %>
+    <div class="messages messages-danger">
+      <p> <%= error.msg %></p>
+    </div>
+    <% }) %>
+<% } %>
+
 <% if (locals.successMessage != null) { %> 
   <%= successMessage %>
 <% } %> 

@@ -10,12 +10,12 @@ const path = require('path')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 const session = require('express-session')
-// const passport = require('passport')
+const passport = require('passport')
 
-// require('./config/passport')(passport)
+require("./config/passport")(passport)
 
 const indexRouter = require('./routes/index')
-const loginRouter = require('./routes/login')
+// const loginRouter = require('./routes/login')
 const adminRouter = require('./routes/admin')
 const createRouter = require('./routes/create')
 const editRouter = require('./routes/edit')
@@ -36,26 +36,26 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET, // set session_secret generated
   resave: true,
   saveUninitialized: true
 }))
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
-// app.use((req, res, next) => {
-//   res.locals.isAuthenticated = req.isAuthenticated()
-//   next()
-// })
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg')
-  res.locals.error_msg = req.flash('error_msg')
-  res.locals.error = req.flash('error')
+  res.locals.isAuthenticated = req.isAuthenticated()
   next()
+})
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
 })
 
 app.use('/', indexRouter)
-app.use('/login', loginRouter)
+// app.use('/login', loginRouter)
 app.use('/admin', adminRouter)
 app.use('/create', createRouter)
 app.use('/edit', editRouter)
