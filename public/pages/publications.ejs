@@ -18,110 +18,118 @@
         </ul>
       </nav>
     </div>
-    <div class="publication-list col-10">
+    <div class="catalogue-list col-10">
       <% publications.forEach(publication => { %>
-        <h2 id="<%= publication.id %>" class="pt-5"><%= publication.name %></h2>
-        <div class="publication-artists">
-          <h3>Authors / Artists / Researchers</h3>
-          <ul>
-            <% publication.artists.forEach(publicationArtist => { %>
-              <li>                
-                <%= publicationArtist.name %> 
-              </li>
-            <% }) %> 
-          </ul>
+        <div class="catalogue-item">
+          <h2 id="<%= publication.id %>" class="pt-5"><%= publication.name %></h2>
+          <div class="catalogue-references m-4">
+            <div class="catalogue-reference publication-artists">
+              <h3>Authors / Artists / Researchers</h3>
+                <div class="catalogue-reference-content m-3">
+                <ul>
+                  <% publication.artists.forEach(publicationArtist => { %>
+                    <li>                
+                      <%= publicationArtist.name %> 
+                    </li>
+                  <% }) %> 
+                </ul>
+              </div>
+            </div>
+            <div class="catalogue-reference publication-links">
+              <h3>Links</h3>
+              <div class="catalogue-reference-content m-3">
+                <% links.forEach(link => { %>
+                  <% link.publications.forEach(linkPublication => { %>
+                    <% if (linkPublication.id == publication.id && link.linkType == 'website') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %> 
+                    <% if (linkPublication.id == publication.id && link.linkType == 'book') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %> 
+                    <% if (linkPublication.id == publication.id && link.linkType == 'article') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %> 
+                    <% if (linkPublication.id == publication.id && link.linkType == 'video') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %> 
+                    <% if (linkPublication.id == publication.id && link.linkType == 'channel') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %> 
+                    <% if (linkPublication.id == publication.id && link.linkType == 'library') { %>
+                      <h4> <%= link.linkType %>s  </h4>
+                      <ul>
+                        <li>
+                          <%= link.title %>
+                        </li>
+                        <li>
+                          <%= link.description %>
+                        </li>
+                        <li>
+                          <%= link.linkUrl %>
+                        </li>
+                      </ul>
+                    <% } %>
+                  <% }) %> 
+                <% }) %> 
+              </div>         
+            </div>                  
+          </div>
         </div>
-
-        <div class="artist-links">
-        <% links.forEach(link => { %>
-          <% link.publications.forEach(linkPublication => { %>
-            <% if (linkPublication.id == publication.id && link.linkType == 'website') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %> 
-            <% if (linkPublication.id == publication.id && link.linkType == 'book') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %> 
-            <% if (linkPublication.id == publication.id && link.linkType == 'article') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %> 
-            <% if (linkPublication.id == publication.id && link.linkType == 'video') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %> 
-            <% if (linkPublication.id == publication.id && link.linkType == 'channel') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %> 
-            <% if (linkPublication.id == publication.id && link.linkType == 'library') { %>
-              <h4> <%= link.linkType %>s  </h4>
-              <ul>
-                <li>
-                  <%= link.title %>
-                </li>
-                <li>
-                  <%= link.description %>
-                </li>
-                <li>
-                  <%= link.linkUrl %>
-                </li>
-              </ul>
-            <% } %>
-          <% }) %> 
-        <% }) %>          
-      </div>
       <% }) %>
     </div>
   </div>
