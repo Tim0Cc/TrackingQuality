@@ -18,14 +18,14 @@
         </ul>
       </nav>
     </div>
-    <div class="catalogue-list col-10">
+    <div class="catalogue-list publication-list col-10">
       <% publications.forEach(publication => { %>
         <div class="catalogue-item">
           <h2 id="<%= publication.id %>" class="pt-5"><%= publication.name %></h2>
           <div class="catalogue-references m-4">
             <div class="catalogue-reference publication-artists">
               <h3>Authors / Artists / Researchers</h3>
-                <div class="catalogue-reference-content m-3">
+              <div class="catalogue-reference-content m-3">
                 <ul>
                   <% publication.artists.forEach(publicationArtist => { %>
                     <li>                
