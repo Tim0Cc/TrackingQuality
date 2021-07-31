@@ -1,10 +1,10 @@
 <div id="institutions" class="page">
   <h2>Institutions / Companies / Organizations</h2>
   <div class="row">
-    <div class="col-2 border rounded border-white navbar-container">
+    <div class="border rounded border-white navbar-container col-12 col-sm-4 col-md-3 col-lg-2">
       <nav id="navbar-institutions" class="navbar sticky-top px-0">
-        <h5 class="my-3">jump to:</h5>
         <ul class="nav flex-column">
+          <h5 class="my-3">jump to:</h5>
           <% let first = true %> 
           <% institutions.forEach(institution => { %>
             <li class="nav-item">
@@ -19,14 +19,14 @@
         </ul>
       </nav>
     </div>
-    <div class="catalogue-list institution-list col-10">
+    <div class="catalogue-list institution-list col-12 col-sm-8 col-md-9 col-lg-10">
       <% institutions.forEach(institution => { %>
         <div class="catalogue-item">
           <h3 id="<%= institution.id %>" class=""><%= institution.name %></h3>
-          <div class="catalogue-references m-4">
+          <div class="catalogue-references">
             <!-- <div class="catalogue-reference institution-artists">
               <h4>Authors / Artists / Researchers</h4>
-              <div class="catalogue-reference-content m-3">
+              <div class="catalogue-reference-content">
                 <ul>
                   <%# institution.artists.forEach(institutionArtist => { %>
                     <li>                
