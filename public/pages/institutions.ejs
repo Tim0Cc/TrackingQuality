@@ -1,1 +1,117 @@
 <h2>Institutions / Companies / Organizations</h2>
+<div id="artists">
+  <div class="row">
+    <div class="col-2">
+      <nav id="navbar-artists" class="navbar sticky-top px-0">
+        <ul class="nav flex-column">
+          <% let first = true %> 
+          <% artists.forEach(artist => { %>
+            <li class="nav-item">
+              <% if (first === true) { %> 
+                <a class="nav-link px-0" href="#<%= artist.id %>"><%= artist.name %></a>
+                <% first = false %> 
+              <% } else { %>
+                <a class="nav-link px-0" href="#<%= artist.id %>"><%= artist.name %></a>
+              <% } %> 
+            </li>
+          <% }) %> 
+        </ul>
+      </nav>
+    </div>
+    <div class="artist-list col-10">
+      <% artists.forEach(artist => { %>
+        <h2 id="<%= artist.id %>" class="pt-5"><%= artist.name %></h2>
+        <div class="artist-links">
+        <% links.forEach(link => { %>
+          <% link.artists.forEach(linkArtist => { %>
+            <% if (linkArtist.id == artist.id && link.linkType == 'website') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %> 
+            <% if (linkArtist.id == artist.id && link.linkType == 'book') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %> 
+            <% if (linkArtist.id == artist.id && link.linkType == 'article') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %> 
+            <% if (linkArtist.id == artist.id && link.linkType == 'video') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %> 
+            <% if (linkArtist.id == artist.id && link.linkType == 'channel') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %> 
+            <% if (linkArtist.id == artist.id && link.linkType == 'library') { %>
+              <h4> <%= link.linkType %>s  </h4>
+              <ul>
+                <li>
+                  <%= link.title %>
+                </li>
+                <li>
+                  <%= link.description %>
+                </li>
+                <li>
+                  <%= link.linkUrl %>
+                </li>
+              </ul>
+            <% } %>
+          <% }) %> 
+        <% }) %>          
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
