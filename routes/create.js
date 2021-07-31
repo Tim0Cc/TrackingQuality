@@ -15,7 +15,7 @@ router.get('/link', async (req, res) => {
     const institutions =  await Institution.find({}).sort('name').exec()
     res.render('./admin/new_link', { link, publications, institutions, artists, mailadress: process.env.MAILADRESS })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.redirect('/')
   }
 })
@@ -35,7 +35,6 @@ router.post('/link', ensureAuthenticated, async (req, res) => {
   checkInputTypeOfInstitutions(link, linkInstitutions)
   try {
     await link.save()
-    console.log(link)
     req.flash('success_msg', 'Success creating Link')
     res.redirect('/create/link')
   } catch (error) {
@@ -53,7 +52,7 @@ router.get('/', async (req, res) => {
     const artists = await Artist.find({}).sort('name').exec()
     res.render('./admin/new', { artist, publication, institution, artists, mailadress: process.env.MAILADRESS })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.redirect('/')
   }
 })

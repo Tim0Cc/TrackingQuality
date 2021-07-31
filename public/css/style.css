@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
+@import 'pages.css';
+
 body {
   background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-image: linear-gradient(to right, hsla(210, 11%, 15%, 0%), hsla(210, 11%, 15%, 80%) 10%, hsla(210, 11%, 15%, 100%), hsla(210, 11%, 15%, 80%) 90%, hsla(210, 11%, 15%, 0%)), url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');

@@ -1,8 +1,8 @@
-<h2>Artists & Researchers</h2>
-<div id="artists">
+<div id="artists" class="page">
+  <h2>Artists & Researchers</h2>
   <div class="row">
     <div class="col-2 border rounded border-white">
-      <h4 class="my-3">jump to:</h4>
+      <h5 class="my-3">jump to:</h5>
       <nav id="navbar-artists" class="navbar sticky-top px-0">
         <ul class="nav flex-column">
           <% let first = true %> 
@@ -22,85 +22,49 @@
     <div class="catalogue-list artist-list col-10">
       <% artists.forEach(artist => { %>
         <div class="catalogue-item">
-          <h2 id="<%= artist.id %>" class="pt-5"><%= artist.name %></h2>
+          <h3 id="<%= artist.id %>" class=""><%= artist.name %></h3>
           <div class="catalogue-references m-4">
             <div class="catalogue-reference artist-links">
-              <h3>Links</h3>
               <div class="catalogue-reference-content m-3">
                 <% links.forEach(link => { %>
                   <% link.artists.forEach(linkArtist => { %>
                     <% if (linkArtist.id == artist.id && link.linkType == 'website') { %>
-                      <h4> <%= link.linkType %>s  </h4>
                       <ul>
                         <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
                       </ul>
                     <% } %> 
                     <% if (linkArtist.id == artist.id && link.linkType == 'book') { %>
-                      <h4> <%= link.linkType %>s  </h4>
                       <ul>
                         <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
                       </ul>
                     <% } %> 
                     <% if (linkArtist.id == artist.id && link.linkType == 'article') { %>
-                      <h4> <%= link.linkType %>s  </h4>
                       <ul>
                         <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
                       </ul>
                     <% } %> 
                     <% if (linkArtist.id == artist.id && link.linkType == 'video') { %>
-                      <h4> <%= link.linkType %>s  </h4>
                       <ul>
                         <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
                       </ul>
                     <% } %> 
                     <% if (linkArtist.id == artist.id && link.linkType == 'channel') { %>
-                      <h4> <%= link.linkType %>s  </h4>
                       <ul>
                         <li>
-                          <%= link.title %>
-                        </li>
-                        <li>
-                          <%= link.description %>
-                        </li>
-                        <li>
-                          <%= link.linkUrl %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
                         </li>
                       </ul>
                     <% } %> 
                     <% if (linkArtist.id == artist.id && link.linkType == 'library') { %>
-                      <h4> <%= link.linkType %>  </h4>
+                      <h5> <%= link.linkType %>  </h5>
                       <ul>
                         <li>
                           <%= link.title %>

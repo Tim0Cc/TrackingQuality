@@ -1,0 +1,20 @@
+.page h2 {
+  text-align: center;
+}
+
+.page h3 {
+  font-size: 20px;
+}
+.page h4 {
+  font-size: 18px;
+}
+.page h5 {
+  font-size: 16px;
+}
+.page li {
+  font-size: 14px;
+}
+.catalogue-item {
+  border-bottom: white solid 1px;
+  padding-top: 0.8rem;
+}

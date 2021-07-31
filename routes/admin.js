@@ -35,7 +35,6 @@ router.post('/register', (req, res) => {
   const registerToken = req.body.register_token
   let errors = [];
   if(!username || !password || !password2 || !registerToken) {
-    console.log(username, password, password2, registerToken)
     errors.push({msg : "Please fill in all fields"})
   }
   // check register-token
