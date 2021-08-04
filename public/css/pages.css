@@ -1,6 +1,10 @@
 a {
-  color: rgb(0, 255, 157) !important;
+  color: rgba(0, 255, 157, 0.801) !important;
 }
+
+/* .page nav a, footer a {
+  color: rgba(0, 255, 157, 0.808) !important;
+} */
 
 .page h2 {
   text-align: center;
