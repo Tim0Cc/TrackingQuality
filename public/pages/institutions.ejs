@@ -42,27 +42,32 @@
                   <% link.institutions.forEach(linkInstitution => { %>
                     <% if (linkInstitution.id == institution.id && link.linkType == 'website') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> [<%= link.linkType %>]
+                          <p><%= link.description %></p>
                         </li>
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'book') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> [<%= link.linkType %>]
+                          <p><%= link.description %></p>
                         </li>
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'article') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> [<%= link.linkType %>]
+                          <p><%= link.description %></p>
                         </li>
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'video') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> [<%= link.linkType %>]
+                          <p><%= link.description %></p>
                         </li>
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'channel') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> [<%= link.linkType %>]
+                          <p><%= link.description %></p>
                         </li>
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'library') { %>
