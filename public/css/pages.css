@@ -32,6 +32,10 @@ a {
   color: rgba(255, 255, 0, 0.705);
 }
 
+.btn {
+  color: white !important;
+}
+
 .page a {
   text-decoration: none;
 }
