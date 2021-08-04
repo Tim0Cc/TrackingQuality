@@ -72,7 +72,8 @@
                     <% } %> 
                     <% if (linkInstitution.id == institution.id && link.linkType == 'library') { %>
                       <li>
-                        <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                        <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> <span>[<%= link.linkType %>]</span>
+                        <p><%= link.description %></p>
                       </li>
                     <% } %>
                   <% }) %> 
