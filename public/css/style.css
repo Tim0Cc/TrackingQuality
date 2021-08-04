@@ -17,10 +17,6 @@ body > .container * {
   font-family: 'Roboto Mono', monospace;
 }
 
-body > .container {
-  /* background-color: hsla(210, 11%, 15%, 89%); */
-}
-
 footer {
   background-color: hsla(210, 11%, 15%, 100%);
 }
@@ -37,9 +33,3 @@ iframe {
   height: 200px;
   width: 300px;
 }
-/* #navbar-artists {
-  background-color: white;
-} */
-/* #navbar-artists .nav-link.active {
-  font-weight: bold;
-} */

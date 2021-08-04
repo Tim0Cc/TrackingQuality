@@ -15,7 +15,6 @@ const passport = require('passport')
 require("./config/passport")(passport)
 
 const indexRouter = require('./routes/index')
-// const loginRouter = require('./routes/login')
 const adminRouter = require('./routes/admin')
 const createRouter = require('./routes/create')
 const editRouter = require('./routes/edit')
@@ -55,7 +54,6 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRouter)
-// app.use('/login', loginRouter)
 app.use('/admin', adminRouter)
 app.use('/create', createRouter)
 app.use('/edit', editRouter)
