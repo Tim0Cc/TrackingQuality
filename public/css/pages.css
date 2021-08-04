@@ -16,6 +16,10 @@
   font-size: 14px;
 }
 
+.page li > p {
+  padding-left: 8px;
+}
+
 .navbar-container {
   padding: 0px !important;
 }
