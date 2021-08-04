@@ -46,7 +46,9 @@
                         <p><%= link.description %></p>
                       </li>
                     <% } %>
-                  <% }) %> 
+                  <% }) %>
+                <% }) %>
+                <% links.forEach(link => { %> 
                   <% link.institutions.forEach(linkInstitution => { %>
                     <% if (linkInstitution.id == institution.id && link.linkType == 'website') { %>
                         <li>
