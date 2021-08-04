@@ -46,7 +46,11 @@
                       <% } %> 
                       <% if (linkArtist.id == artist.id && link.linkType == 'video') { %>
                         <li>
-                          <a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><%= link.title %></a> (<%= link.linkType %>) – <%= link.description %>
+                          <!-- <h4><a href="<%#= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><h5><%#= link.linkType %></h5></a></h4> -->
+                          <!-- (<%#= link.linkType %>) – <%#= link.description %> -->
+                        </li>
+                        <li>
+                          <%- link.linkUrl %>
                         </li>
                       <% } %> 
                       <% if (linkArtist.id == artist.id && link.linkType == 'channel') { %>

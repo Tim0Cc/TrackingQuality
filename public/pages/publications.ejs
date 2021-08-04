@@ -50,8 +50,11 @@
                       <% } %> 
                       <% if (linkPublication.id == publication.id && link.linkType == 'video') { %>
                         <li>
-                          <h4><a href="<%= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><h5><%= link.linkType %></h5></a></h4>
+                          <!-- <h4><a href="<%#= link.linkUrl %>" target="_blank" rel="noopener noreferrer"><h5><%#= link.linkType %></h5></a></h4> -->
                           <!-- (<%#= link.linkType %>) – <%#= link.description %> -->
+                        </li>
+                        <li>
+                          <%- link.linkUrl %>
                         </li>
                       <% } %> 
                       <% if (linkPublication.id == publication.id && link.linkType == 'channel') { %>

@@ -33,6 +33,10 @@ body {
   position: relative;
 }
 
+iframe {
+  height: 200px;
+  width: 300px;
+}
 /* #navbar-artists {
   background-color: white;
 } */
