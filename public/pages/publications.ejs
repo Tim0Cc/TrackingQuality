@@ -69,7 +69,7 @@
               <!-- <h4>Authors / Artists / Researchers</h4> -->
               <div class="catalogue-reference-content m-3">             
                 <% publication.artists.forEach(publicationArtist => { %>
-                  <span>| <%= publicationArtist.name %></span>
+                  <span>| <a href="/artists/#<%= publicationArtist.id %>"><%= publicationArtist.name %></a></span>
                 <% }) %> 
                 <span>|</span>
               </div>
