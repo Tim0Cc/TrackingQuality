@@ -3,7 +3,6 @@
 @import 'pages.css';
 
 body {
-  background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-image: linear-gradient(to right, hsla(210, 11%, 15%, 0%), hsla(210, 11%, 15%, 80%) 10%, hsla(210, 11%, 15%, 100%), hsla(210, 11%, 15%, 80%) 90%, hsla(210, 11%, 15%, 0%)), url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   ;
   background-repeat: no-repeat;
@@ -11,6 +10,25 @@ body {
   background-size: cover;
   background-position: center;
   color: white !important;
+  position: relative;
+  z-index: 1;
+}
+
+#container {
+  position: relative;
+}
+
+#image {
+  background-image: url(../img/04_MGM0346\ Kopie.JPG);
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: -15%;
+  width: 100%;
+  height: 115%;
+  max-height: 115%;
+  z-index: 0.1;
 }
 
 body > .container * {
@@ -19,6 +37,7 @@ body > .container * {
 
 footer {
   background-color: hsla(210, 11%, 15%, 100%);
+  position: relative;
 }
 
 li {
